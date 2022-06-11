@@ -106,6 +106,9 @@ alias pteste="./vendor/bin/paratest -p8"
 alias tf="./vendor/bin/phpunit --filter"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
+function cleanDocker() {
+    docker volume prune -f && docker system prune -f
+}
 function fuma() {
     mysql -udev -pdev -e 'DROP DATABASE IF EXISTS braip_loc; CREATE DATABASE braip_loc;'
     if [[ $1:t:e == "sql" ]]; then
